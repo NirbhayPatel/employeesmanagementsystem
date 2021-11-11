@@ -31,12 +31,14 @@ public class UserRegistrationController {
         return new UserRegistrationDto();
     }
 
+    /*  This method is uses to get the registration form of the application */
     @GetMapping()
     public String showRegistrationForm(){
         return "registration";
 
     }
 
+    /*  This method is uses to register the new user to application */
     @PostMapping
     public String registerUserAccount(@ModelAttribute("user")UserRegistrationDto registrationDto){
         try {

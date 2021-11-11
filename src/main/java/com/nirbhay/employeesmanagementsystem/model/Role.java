@@ -2,6 +2,9 @@ package com.nirbhay.employeesmanagementsystem.model;
 
 import javax.persistence.*;
 
+/*
+ * This Entity Role class refers to the role table
+ * */
 @Entity
 @Table(name = "role")
 public class Role {

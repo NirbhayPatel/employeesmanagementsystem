@@ -2,6 +2,9 @@ package com.nirbhay.employeesmanagementsystem.model;
 
 import javax.persistence.*;
 
+/*
+* This Entity Employee class refers to the employee table
+* */
 @Entity
 @Table(name = "employees")
 public class Employee {

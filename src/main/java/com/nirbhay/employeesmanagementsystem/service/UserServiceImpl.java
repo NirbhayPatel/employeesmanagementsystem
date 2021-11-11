@@ -31,6 +31,7 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
+    /* Service implementation to register new user to the application */
     @Override
     public User save(UserRegistrationDto registrationDto) throws DataIntegrityViolationException,ConstraintViolationException,SQLIntegrityConstraintViolationException {
         User user = new User(registrationDto.getFirstName(),
@@ -39,6 +40,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
     }
 
+    /* Service implementation to login into the application */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(username);
@@ -48,6 +50,7 @@ public class UserServiceImpl implements UserService {
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),mapRolesToAuthorities(user.getRoles()));
     }
 
+    /* Service implementation to authenticate the user */
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
     }

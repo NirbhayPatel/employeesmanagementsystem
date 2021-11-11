@@ -16,16 +16,20 @@ import java.util.Optional;
 public class EmployeeServiceImpl implements EmployeeService{
     @Autowired
     private EmployeeRepository employeeRepository;
+
+    /* Service implementation to get all the employees from the table */
     @Override
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
     }
 
+    /* Service implementation to save employee */
     @Override
     public void saveEmployee(Employee employee) {
         this.employeeRepository.save(employee);
     }
 
+    /* Service implementation to get employee by employeeID*/
     @Override
     public Employee getEmployeeByID(long id) {
         Optional<Employee> optional = employeeRepository.findById(id);
@@ -38,6 +42,7 @@ public class EmployeeServiceImpl implements EmployeeService{
         return employee;
     }
 
+    /* Service implementation to delete employee by employeeID*/
     @Override
     public void deleteEmployeeByID(long id) {
         this.employeeRepository.deleteById(id);
@@ -50,6 +55,7 @@ public class EmployeeServiceImpl implements EmployeeService{
         return this.employeeRepository.findAll(pageable);
     }
 
+    /* Service implementation to find the employees by salary info */
     @Override
     public List<Employee> findEmployeesBySalary(String salary) {
         return employeeRepository.findEmployeesBySalary(salary);

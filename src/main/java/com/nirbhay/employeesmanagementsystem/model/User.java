@@ -3,6 +3,9 @@ package com.nirbhay.employeesmanagementsystem.model;
 import javax.persistence.*;
 import java.util.Collection;
 
+/*
+ * This Entity User class refers to the user table
+ * */
 @Entity
 @Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
